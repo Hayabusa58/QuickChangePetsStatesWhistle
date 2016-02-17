@@ -11,6 +11,8 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 
 @Mod(modid = "ChangeSTWhistle", name = "QuickChangeStatusWhistle")
@@ -38,15 +40,20 @@ public class WhistlemodCore {
 		cfg.save();
 	}
 
-
-
 	}
 
 	@EventHandler
 	public void postInit(FMLInitializationEvent event) throws IOException {
 	//レシピの登録等
-
-	}
+		GameRegistry.addRecipe(new ItemStack(WhistlemodCore.Whistle,1),
+						"X  ",
+						" Y ",
+						"  Z",
+						'X',Items.stick,
+						'Y',Items.iron_ingot,
+						'Z',Items.string
+		);
+		}
 
 
 }
